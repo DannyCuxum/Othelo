@@ -27,7 +27,7 @@ namespace WebApplicationOthelo
 
         protected void ButtonTorneo_Click(object sender, EventArgs e)
         {
-
+            // comentario
         }
     }
 }

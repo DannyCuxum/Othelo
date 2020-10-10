@@ -57,7 +57,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
 &nbsp;&nbsp;
-                        <asp:Button ID="ButtonTorneo" runat="server" Height="36px" Text="TORNEO" Width="145px" />
+                        <asp:Button ID="ButtonTorneo" runat="server" Height="36px" Text="TORNEO" Width="145px" OnClick="ButtonTorneo_Click" />
                         <br />
 
                     </td>

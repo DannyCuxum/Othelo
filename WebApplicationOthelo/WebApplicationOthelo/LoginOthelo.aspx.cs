@@ -45,6 +45,7 @@ namespace WebApplicationOthelo
         {
             Session.Abandon();
             Response.Redirect("RegistroUsuario.aspx");
+            // se realiza conexcion con DB
 
         }
     }
