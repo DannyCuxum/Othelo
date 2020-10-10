@@ -24,5 +24,10 @@ namespace WebApplicationOthelo
             Session.Abandon();
             Response.Redirect("TableroJuego.aspx");
         }
+
+        protected void ButtonTorneo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
