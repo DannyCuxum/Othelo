@@ -9,7 +9,8 @@ using System.Xml;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
-
+using System.Data.SqlClient;
+using System.Data;
 
 namespace WebApplicationOthelo
 {
@@ -17,24 +18,185 @@ namespace WebApplicationOthelo
     {
 
         public static int JUGADOR = 1;
-        public int[,] Ficha = new int[8, 8];
-        public Button[,] botones = new Button[8, 8];
+        public static int[,] Ficha = new int[8, 8];
+        public static Button[,] botones = new Button[8, 8];
 
+        public static bool Carga = false;// esto sirve para que las fichas
 
         public static bool FichaNegra = false;
         public static bool FichaBlanca = true;
+
         public static string columna;
         public static string fila;
         public static string color;
-        public static string tiro;
-        public static int contador = 0;
+
+        //public static string tiro;//
+        public static int contador = 0;//sirve para leer xml
+        public static int contador2 = 0;//sirve para while de evaluar moviemintos
+        public static int contadorFichas = 0;//para pintar los botones
+
         public ArrayList ArFila = new ArrayList();
         public ArrayList arrayColumna = new ArrayList();
         public ArrayList arrayColor = new ArrayList();
 
+        //las varaible que se crearan hay que realizarles un reinicio en el metodo Reiniciar()
+        //ademas se agregadron los metodos que modifican la DB 
+        public static int FichaB = 0;
+        public static int FichaN = 0;
+        public static int Ganador = 0;
+        public static string EstadoPartida = "PROCESO";
+        public static int ConTotal = 0;//este validara la suma total de los movimientos la cual sera 60 en total para finalizar partida
+        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //se ingresara lo nuevos datos
+
+            if (Carga == false)
+            {
+                for (int i = 0; i <= 7; i++)
+                {
+                    for (int j = 0; j <= 7; j++)
+                    {
+                        Ficha[i, j] = 0;
+
+                    }
+                }
+
+                Ficha[4, 3] = Ficha[3, 4] = 2;
+                Ficha[3, 3] = Ficha[4, 4] = 1;
+                Carga = true;
+            }
+
+
+            botones[0, 0] = BtnA1;
+            botones[0, 1] = BtnB1;
+            botones[0, 2] = BtnC1;
+            botones[0, 3] = BtnD1;
+            botones[0, 4] = BtnE1;
+            botones[0, 5] = BtnF1;
+            botones[0, 6] = BtnG1;
+            botones[0, 7] = BtnH1;
+
+            botones[1, 0] = BtnA2;
+            botones[1, 1] = BtnB2;
+            botones[1, 2] = BtnC2;
+            botones[1, 3] = BtnD2;
+            botones[1, 4] = BtnE2;
+            botones[1, 5] = BtnF2;
+            botones[1, 6] = BtnG2;
+            botones[1, 7] = BtnH2;
+
+            botones[2, 0] = BtnA3;
+            botones[2, 1] = BtnB3;
+            botones[2, 2] = BtnC3;
+            botones[2, 3] = BtnD3;
+            botones[2, 4] = BtnE3;
+            botones[2, 5] = BtnF3;
+            botones[2, 6] = BtnG3;
+            botones[2, 7] = BtnH3;
+
+            botones[3, 0] = BtnA4;
+            botones[3, 1] = BtnB4;
+            botones[3, 2] = BtnC4;
+            botones[3, 3] = BtnD4;
+            botones[3, 4] = BtnE4;
+            botones[3, 5] = BtnF4;
+            botones[3, 6] = BtnG4;
+            botones[3, 7] = BtnH4;
+
+            botones[4, 0] = BtnA5;
+            botones[4, 1] = BtnB5;
+            botones[4, 2] = BtnC5;
+            botones[4, 3] = BtnD5;
+            botones[4, 4] = BtnE5;
+            botones[4, 5] = BtnF5;
+            botones[4, 6] = BtnG5;
+            botones[4, 7] = BtnH5;
+
+            botones[5, 0] = BtnA6;
+            botones[5, 1] = BtnB6;
+            botones[5, 2] = BtnC6;
+            botones[5, 3] = BtnD6;
+            botones[5, 4] = BtnE6;
+            botones[5, 5] = BtnF6;
+            botones[5, 6] = BtnG6;
+            botones[5, 7] = BtnH6;
+
+            botones[6, 0] = BtnA7;
+            botones[6, 1] = BtnB7;
+            botones[6, 2] = BtnC7;
+            botones[6, 3] = BtnD7;
+            botones[6, 4] = BtnE7;
+            botones[6, 5] = BtnF7;
+            botones[6, 6] = BtnG7;
+            botones[6, 7] = BtnH7;
+
+            botones[7, 0] = BtnA8;
+            botones[7, 1] = BtnB8;
+            botones[7, 2] = BtnC8;
+            botones[7, 3] = BtnD8;
+            botones[7, 4] = BtnE8;
+            botones[7, 5] = BtnF8;
+            botones[7, 6] = BtnG8;
+            botones[7, 7] = BtnH8;
+
+            if (!IsPostBack)
+            {
+                LLenarListaPartida();
+
+            }
+
+
+            /////////////////aqui colocaremos la evaluacion del contador total el cual a llegar a 60 finalizara el juego y relizara
+            ///lo que seria en conteo total de las fichas estado de la partida="finalizada", ganador, solo eso
+            if (ConTotal == 60)
+            {
+                FinalPartida();
+            }
+
+
+        }
+        void FinalPartida()
+        {
+            ContarFichas();
+
+            if (FichaN > FichaB)
+            {
+                Ganador = 2;
+            }
+            else if (FichaB > FichaN)
+            {
+                Ganador = 1;
+            }
+            else if (FichaB == FichaN)
+            {
+                Ganador = 0;
+            }
+
+            EstadoPartida = "FINALIZADA";
+        }
+        public void LLenarListaPartida()
+        {
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source=LAPTOP-SF8NTQGS;initial Catalog=LoginOthelo;integrated Security=True;"))
+            {
+                sqlCon.Open();
+
+                string consulta = "SELECT codigoPartida FROM Partida WHERE códigoUsuario= " + LoginOthelo.UsuarioJ + " AND " + " códigoUsuario2 = " + EleccioContri.UsuarioJ2;
+
+                SqlCommand sqlcmd = new SqlCommand(consulta, sqlCon);
+                SqlDataAdapter da = new SqlDataAdapter(sqlcmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                DdlPartida.DataSource = ds;
+                DdlPartida.DataTextField = "codigoPartida";
+                DdlPartida.DataValueField = "codigoPartida";
+                DdlPartida.DataBind();
+                DdlPartida.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+
+            }
 
         }
 
