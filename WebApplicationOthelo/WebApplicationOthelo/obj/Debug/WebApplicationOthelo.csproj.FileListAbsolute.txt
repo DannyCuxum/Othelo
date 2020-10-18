@@ -54,3 +54,7 @@ D:\documentos\Visual Studio 2017\PROYECTOS\WebApplicationOthelo\WebApplicationOt
 D:\documentos\Visual Studio 2017\PROYECTOS\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.csproj.CopyComplete
 D:\documentos\Visual Studio 2017\PROYECTOS\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.dll
 D:\documentos\Visual Studio 2017\PROYECTOS\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.pdb
+D:\documentos\GitHub\Othelo\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.csprojAssemblyReference.cache
+D:\documentos\GitHub\Othelo\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.csproj.CoreCompileInputs.cache
+D:\documentos\GitHub\Othelo\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.dll
+D:\documentos\GitHub\Othelo\WebApplicationOthelo\WebApplicationOthelo\obj\Debug\WebApplicationOthelo.pdb

@@ -24,7 +24,9 @@
                     <td>
                         &nbsp;</td>
                     <td class="auto-style1">
-                        OPCIONES DE PARTIDAS</td>
+                        OPCIONES DE PARTIDAS<asp:Timer ID="Timer1" runat="server" Interval="1000">
+                        </asp:Timer>
+                    </td>
                 </tr>
                 <tr>
                     <td>

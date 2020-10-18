@@ -10,7 +10,7 @@
 namespace WebApplicationOthelo {
     
     
-    public partial class OpcionesTipoPartida {
+    public partial class Cronometro {
         
         /// <summary>
         /// Control form1.
@@ -31,30 +31,12 @@ namespace WebApplicationOthelo {
         protected global::System.Web.UI.Timer Timer1;
         
         /// <summary>
-        /// Control ButtonPc.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPc;
-        
-        /// <summary>
-        /// Control ButtonVs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonVs;
-        
-        /// <summary>
-        /// Control ButtonTorneo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonTorneo;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
