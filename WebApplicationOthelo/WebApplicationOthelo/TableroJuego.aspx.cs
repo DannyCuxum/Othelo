@@ -16,7 +16,9 @@ namespace WebApplicationOthelo
 {
     public partial class TableroJuego : System.Web.UI.Page
     {
-
+        // se valida y se crea cronometro
+        //se finaliza entregable 1
+        //se crea modalidad de colores
         public static int JUGADOR = 1;
         public static int[,] Ficha = new int[8, 8];
         public static Button[,] botones = new Button[8, 8];
