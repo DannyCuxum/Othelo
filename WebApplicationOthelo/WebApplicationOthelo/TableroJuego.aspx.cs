@@ -53,6 +53,7 @@ namespace WebApplicationOthelo
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /// se crea tablero dinamico
 
             //se ingresara lo nuevos datos
 
