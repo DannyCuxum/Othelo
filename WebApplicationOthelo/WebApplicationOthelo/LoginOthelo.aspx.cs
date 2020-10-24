@@ -37,6 +37,7 @@ namespace WebApplicationOthelo
                 {
                     LabelErrorMessage.Visible = true;
                 }
+                // se realiza el cronometro en el login normal
 
             }
         }
