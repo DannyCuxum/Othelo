@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cronometro.aspx" />
+    <Content Include="FormularioFinal.aspx" />
     <Content Include="LoginOthelo.aspx" />
     <Content Include="OpcionesTipoPartida.aspx" />
     <Content Include="RegistroUsuario.aspx" />
@@ -81,6 +82,13 @@
     </Compile>
     <Compile Include="Cronometro.aspx.designer.cs">
       <DependentUpon>Cronometro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioFinal.aspx.cs">
+      <DependentUpon>FormularioFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioFinal.aspx.designer.cs">
+      <DependentUpon>FormularioFinal.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginOthelo.aspx.cs">
       <DependentUpon>LoginOthelo.aspx</DependentUpon>
