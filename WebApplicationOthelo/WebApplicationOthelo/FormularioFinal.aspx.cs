@@ -17,8 +17,24 @@ namespace WebApplicationOthelo
 {
     public partial class FormularioFinal : System.Web.UI.Page
     {
+
+        // se mejora la captura de movimientos en xtreme
         //para monstrar los movimiento se usar bool
         public static bool usuarioBlanco = false;
+        // se logra visualizar los colores recorridos
+
+
+
+
+
+            /*
+             * 
+             * 
+             * 
+             * 
+             * 
+             * **/
+
         public static bool usuarioNegro = false;
         //posiciones
         public static int posicionNegra = 1;
