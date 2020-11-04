@@ -49,7 +49,8 @@ namespace WebApplicationOthelo
         public static string EstadoPartida = "PROCESO";
         public static int ConTotal = 0;//este validara la suma total de los movimientos la cual sera 60 en total para finalizar partida
         
-
+        // SE GENERA TABLERO CON LAS CORRESPONDIENTES COLUMNAS SOLO 
+        //FALTA XML
 
         protected void Page_Load(object sender, EventArgs e)
         {
