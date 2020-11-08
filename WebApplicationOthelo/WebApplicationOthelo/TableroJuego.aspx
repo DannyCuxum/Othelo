@@ -17,6 +17,8 @@
         }
         .auto-style3 {
             color: #FFFFFF;
+            /*se genera cambio en tablero xtreme se maodifica BD*/
+            /* SE REALIZA CAMBIOS EN DOCUMENTACION*/
         }
     </style>
 </head>

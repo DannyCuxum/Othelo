@@ -69,7 +69,12 @@ namespace WebApplicationOthelo
         public static Button[,] tableroColor = new Button[8, 8];
         protected void Page_Load(object sender, EventArgs e)
         {
+            //SE GENERA LA BASE DE DATO CORREGIDA
 
+            /// se genera cambios a los form para ajustarse a la calificacion
+            /// no  se establece xml
+            /// se establece todo los modos del xtream
+            /// Se logra establces conexion con base de datos
         }
     }
 }
